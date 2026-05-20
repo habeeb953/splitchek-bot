@@ -1,11 +1,7 @@
 import telebot
+import os
 
-TOKEN = "8569307483:AAHdxagIvoT5ASblm-udIX43Igbb7YbpV7E"
-
-telebot.apihelper.proxy = {
-    'http': 'http://80.71.232.86:443',
-    'https': 'http://80.71.232.86:443'
-}
+TOKEN = os.environ.get("BOT_TOKEN")
 
 bot = telebot.TeleBot(TOKEN)
 
