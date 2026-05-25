@@ -30,7 +30,7 @@ def start(message):
     ))
     bot.send_message(
         message.chat.id,
-        "Привет! Я SplitChek — помогаю делить расходы в группе.\n\nНажми кнопку ниже чтобы открыть приложение 👇",
+        "Привет! Я SplitChek — помогаю делить расходы в группе.\n\nНажми кнопку ниже чтобы открыть приложение ",
         reply_markup=markup
     )
 
@@ -43,4 +43,11 @@ def help(message):
         "/app - открыть приложение\n"
     )
 
-@bot.message_handler(commands=["app"
+@bot.message_handler(commands=["app"])
+def open_app(message):
+    markup = InlineKeyboardMarkup()
+    markup.add(InlineKeyboardButton(
+        " Открыть SplitChek",
+        web_app=WebAppInfo(url=WEBAPP_URL)
+    ))
+    bot.send_message(message.chat.id, "Открываю приложение ", reply_markup=markup)
