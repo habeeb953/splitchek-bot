@@ -123,3 +123,4 @@ bot_thread.start()
 
 print(f"Starting Flask on port {port}...")
 app.run(host="0.0.0.0", port=port)
+
